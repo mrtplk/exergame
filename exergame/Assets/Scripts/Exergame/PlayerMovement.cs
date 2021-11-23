@@ -8,17 +8,17 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 position;
     public float speed = 20.0f;
     public GameObject animal_spawner;
-    public GameObject score_manager;
+    //public GameObject score_manager;
 
     private AnimalSpawner a_s_s;
-    private ScoreManager s_m;
+    //private ScoreManager s_m;
 
     // Start is called before the first frame update
     void Start()
     {
         position = gameObject.transform.position;
         a_s_s = animal_spawner.GetComponent<AnimalSpawner>();
-        s_m = score_manager.GetComponent<ScoreManager>();
+        //s_m = score_manager.GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         {
             print("animal");
             a_s_s.Stop();
-            s_m.ScoreUpdate("A_C");
+            ScoreManager.ScoreUpdate("A_C");
             // SceneManager.LoadScene("MapScene"); //activate map
             // Time.timeScale = 0; //freeze scene
         }
@@ -61,13 +61,13 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Fire")
         {
             print("fire");
-            s_m.ScoreUpdate("F");
+            ScoreManager.ScoreUpdate("F");
         }
 
         if (collision.gameObject.tag == "Stone")
         {
             print("stone");
-            s_m.ScoreUpdate("S");
+            ScoreManager.ScoreUpdate("S");
         }
     }
 

@@ -2,30 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+public static class ScoreManager
 {
-    public int score;
-    public int points_animal_save = 50; //A_S
-    public int points_animal_catch = 30; //A_C
-    public int points_collect_waterdrop = 50; //D
-    public int points_touch_stone = -10; //S
-    public int points_touch_wall = -10; //W
-    public int points_touch_fire = -10; //F
-
+    public static int score;
+    public static int points_animal_save = 50; //A_S
+    public static int points_animal_catch = 30; //A_C
+    public static int points_collect_waterdrop = 50; //D
+    public static int points_touch_stone = -10; //S
+    public static int points_touch_wall = -10; //W
+    public static int points_touch_fire = -10; //F
 
     // Start is called before the first frame update
-    void Start()
+    public static void Initialise()
     {
         score = 100;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
-    public void ScoreUpdate(string type)
+    public static void ScoreUpdate(string type)
     {
         switch (type)
         {
@@ -39,13 +34,13 @@ public class ScoreManager : MonoBehaviour
                 score += points_collect_waterdrop;
                 break;
             case "S":
-                score -= points_touch_stone;
+                score += points_touch_stone;
                 break;
             case "W":
-                score -= points_touch_wall;
+                score += points_touch_wall;
                 break;
             case "F":
-                score -= points_touch_fire;
+                score += points_touch_fire;
                 break;
             default:
                 break;
