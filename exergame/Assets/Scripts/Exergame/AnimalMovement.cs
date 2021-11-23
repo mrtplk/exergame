@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimalMovement2 : MonoBehaviour
+public class AnimalMovement : MonoBehaviour
 {
     public float force = 2.0f;
     public float repeatRate = 3.0f;

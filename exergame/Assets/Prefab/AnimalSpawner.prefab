@@ -43,9 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b707aa5b23d2e4b999b7fcd77c2eb4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game_area: {fileID: 0}
-  animal_prefab: {fileID: 0}
-  animal_count: 0
+  game_area: {fileID: 2892989629282436623, guid: 9cff669e030b5458a9782ea7cdac21c8, type: 3}
+  animal_prefab: {fileID: 5051925353419127714, guid: 63c3143d3676e4f29b221ad5476201b4, type: 3}
+  fire_prefab: {fileID: 7616875975485703324, guid: 5413edf6f4163441fbc8d38d6843b137, type: 3}
+  stone_prefab: {fileID: 4373199742739383797, guid: 1fffa1c8fe32d4c209f45f27e82c9a1b, type: 3}
   animal_limit: 5
+  stone_limit: 5
+  fire_limit: 4
+  animal_count: 0
   animal_spawn_time: 3
-  speed: 5
+  fire_spawn_time: 5
+  game_area_width: 0
+  game_area_height: 0

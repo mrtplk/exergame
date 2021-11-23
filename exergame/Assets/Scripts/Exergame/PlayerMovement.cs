@@ -57,6 +57,18 @@ public class PlayerMovement : MonoBehaviour
             // SceneManager.LoadScene("MapScene"); //activate map
             // Time.timeScale = 0; //freeze scene
         }
+
+        if (collision.gameObject.tag == "Fire")
+        {
+            print("fire");
+            s_m.ScoreUpdate("F");
+        }
+
+        if (collision.gameObject.tag == "Stone")
+        {
+            print("stone");
+            s_m.ScoreUpdate("S");
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
