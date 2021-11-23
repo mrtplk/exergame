@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
-  game_area: {fileID: 2892989629282436623, guid: 9cff669e030b5458a9782ea7cdac21c8, type: 3}
+  game_area: {fileID: 4948724681012364081, guid: 9cff669e030b5458a9782ea7cdac21c8, type: 3}
   invoke_rate: 5
 --- !u!61 &-1960482443778163001
 BoxCollider2D:

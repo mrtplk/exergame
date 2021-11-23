@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimalSpawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     public GameObject game_area;
     public GameObject animal_prefab;

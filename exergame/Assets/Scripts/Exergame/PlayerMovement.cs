@@ -10,14 +10,14 @@ public class PlayerMovement : MonoBehaviour
     public GameObject animal_spawner;
     //public GameObject score_manager;
 
-    private AnimalSpawner a_s_s;
+    private Spawner a_s_s;
     //private ScoreManager s_m;
 
     // Start is called before the first frame update
     void Start()
     {
         position = gameObject.transform.position;
-        a_s_s = animal_spawner.GetComponent<AnimalSpawner>();
+        a_s_s = animal_spawner.GetComponent<Spawner>();
         //s_m = score_manager.GetComponent<ScoreManager>();
     }
 
