@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public int score = 100;
+    public int score;
     public int points_animal_save = 50; //A_S
     public int points_animal_catch = 30; //A_C
     public int points_collect_waterdrop = 50; //D
@@ -16,7 +16,7 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        score = 100;
     }
 
     // Update is called once per frame
@@ -39,13 +39,13 @@ public class ScoreManager : MonoBehaviour
                 score += points_collect_waterdrop;
                 break;
             case "S":
-                score += points_touch_stone;
+                score -= points_touch_stone;
                 break;
             case "W":
-                score += points_touch_wall;
+                score -= points_touch_wall;
                 break;
             case "F":
-                score += points_touch_fire;
+                score -= points_touch_fire;
                 break;
             default:
                 break;
