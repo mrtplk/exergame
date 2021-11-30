@@ -5,16 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovementMap : MonoBehaviour
 {
-    public Vector3 position;
+    public Vector3 player_pos;
     public float speed = 20.0f;
     // public GameObject score_manager;
 
     // private ScoreManager s_m;
 
+    public int hit_counter = 0;
+    public int restart_counter = 0;
+
+    public Vector3 start_point_pos;
+
     // Start is called before the first frame update
     void Start()
     {
-        position = gameObject.transform.position;
+        player_pos = gameObject.transform.position;
+        hit_counter = 0;
+        restart_counter = 0;
+
+        start_point_pos = GameObject.Find("startpoint").transform.position;
+        print(start_point_pos);
     }
 
     // Update is called once per frame
@@ -23,35 +33,54 @@ public class PlayerMovementMap : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.UpArrow))
         {
             print("up");
-            position.y += speed * Time.deltaTime;
+            player_pos.y += speed * Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            position.y -= speed * Time.deltaTime;
+            player_pos.y -= speed * Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            position.x += speed * Time.deltaTime;
+            player_pos.x += speed * Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            position.x -= speed * Time.deltaTime;
+            player_pos.x -= speed * Time.deltaTime;
         }
 
-        transform.position = position;
+        transform.position = player_pos;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("OnCollisionEnter2D");
+        print(collision.gameObject.tag);
+        print(collision.gameObject.name);
 
         if (collision.gameObject.tag == "Wall")
         {
             print("enter wall");
-            // s_m.ScoreUpdate("A_C");
+            hit_counter += 1;
+
+            if(hit_counter >= 3) {
+                player_pos.x = start_point_pos.x;
+                player_pos.y = start_point_pos.y;
+
+                hit_counter = 0;
+                restart_counter += 1;
+            }
+
+            if(restart_counter == 3) {
+                print("Lost game");
+            }
+        }
+
+        if (collision.gameObject.name == "end_square")
+        {
+            print("Win!!!!");
         }
     }
 

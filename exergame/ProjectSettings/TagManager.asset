@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Animal
+  - Fire
+  - Spawnable
+  - Stone
+  - Wall
   layers:
   - Default
   - TransparentFX
