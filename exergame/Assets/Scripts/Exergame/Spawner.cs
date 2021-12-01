@@ -58,6 +58,7 @@ public class Spawner : MonoBehaviour
             Vector3 position = GetRandomPositionObstacle();
             Quaternion rotation = Quaternion.Euler(90, 0, 0);
             GameObject new_stone = Instantiate(stone_prefab, position, rotation);
+            new_stone.transform.parent = transform;
         }
     }
 
@@ -68,22 +69,22 @@ public class Spawner : MonoBehaviour
         if (rand_variant == 0)
         {
             float rand_x = Random.Range((float)-game_area_width / 2.0f, (float)game_area_width / 2.0f); //game_panel's center in 0.0f
-            position = new Vector3((float)rand_x, (float)-game_area_height / 2.0f, -2.0f);
+            position = new Vector3((float)rand_x,-2.0f, (float)-game_area_height / 2.0f);
         }
         else if (rand_variant == 1)
         {
             float rand_x = Random.Range((float)-game_area_width / 2.0f, (float)game_area_width / 2.0f);
-            position = new Vector3((float)rand_x, (float)game_area_height/2.0f, -2.0f);
+            position = new Vector3((float)rand_x, -2.0f, (float)game_area_height/2.0f);
         }
         else if(rand_variant == 2)
         {
             float rand_y = Random.Range((float)-game_area_height / 2.0f, (float)game_area_height/2.0f);
-            position = new Vector3((float)game_area_width/2, (float)rand_y, -2.0f);
+            position = new Vector3((float)game_area_width/2.0f, -2.0f, (float)rand_y);
         }
         else
         {
             float rand_y = Random.Range((float)-game_area_height / 2.0f, (float)game_area_height / 2.0f);
-            position = new Vector3((float)-game_area_width / 2, (float)rand_y, -2.0f);
+            position = new Vector3((float)-game_area_width / 2, -2.0f, (float)rand_y);
         }
         
         return position;
@@ -96,7 +97,7 @@ public class Spawner : MonoBehaviour
 
         screenX = Random.Range(-game_area_width / 2.0f, game_area_width / 2.0f);
         screenY = Random.Range(-game_area_height/2.0f, game_area_height/2.0f);
-        position = new Vector3(screenX, screenY, -2);
+        position = new Vector3((float)screenX, -2.0f, (float)screenY);
         return position;
     }
 
@@ -107,6 +108,7 @@ public class Spawner : MonoBehaviour
         animal_count += 1;
         Quaternion rotation = Quaternion.Euler(90, 0, 0);
         GameObject new_animal = Instantiate(animal_prefab, position, rotation);
+        new_animal.transform.parent = transform;
         AnimalMovement animal_script = new_animal.GetComponent<AnimalMovement>();
         return animal_script;
     }
@@ -115,6 +117,7 @@ public class Spawner : MonoBehaviour
     {
         Quaternion rotation = Quaternion.Euler(90, 0, 0);
         GameObject new_fire = Instantiate(fire_prefab, position, rotation);
+        new_fire.transform.parent = transform;
         FireMovement fire_script = new_fire.GetComponent<FireMovement>();
         return fire_script;
     }

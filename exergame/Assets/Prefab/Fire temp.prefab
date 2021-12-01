@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3862876642938509341}
   - component: {fileID: 7844037041367292802}
   - component: {fileID: 6922162704878289039}
-  - component: {fileID: -1960482443778163001}
+  - component: {fileID: -3858381608453959693}
   m_Layer: 0
   m_Name: Fire temp
   m_TagString: Fire
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7616875975485703324}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1190, y: 335.3088, z: 0}
+  m_LocalPosition: {x: 1190, y: 335.3088, z: -2}
   m_LocalScale: {x: 30, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,29 +99,16 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   game_area: {fileID: 4948724681012364081, guid: 9cff669e030b5458a9782ea7cdac21c8, type: 3}
   invoke_rate: 5
---- !u!61 &-1960482443778163001
-BoxCollider2D:
+--- !u!65 &-3858381608453959693
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7616875975485703324}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
-  m_EdgeRadius: 0
+  m_Size: {x: 1, y: 0.5000001, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}

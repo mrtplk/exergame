@@ -26,12 +26,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.UpArrow))
         {
-            position.y += speed * Time.deltaTime;
+            position.z += speed * Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            position.y -= speed * Time.deltaTime;
+            position.z -= speed * Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position = position;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Animal")
         {
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit(Collision2D collision)
     {
         if (collision.gameObject.tag == "Animal")
         {

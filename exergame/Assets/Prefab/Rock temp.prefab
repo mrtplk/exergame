@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4026163612456887801}
   - component: {fileID: 7052241524879215022}
   - component: {fileID: -7065369904628275861}
-  - component: {fileID: 5124072606123108310}
+  - component: {fileID: -5930004558739591428}
   m_Layer: 0
   m_Name: Rock temp
   m_TagString: Stone
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4373199742739383797}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2179.2737, y: 502.86627, z: 0}
+  m_LocalPosition: {x: 2179.2737, y: 502.86627, z: -2}
   m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,29 +96,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641f385ecbdf14cf5914345689c7f8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &5124072606123108310
-BoxCollider2D:
+--- !u!65 &-5930004558739591428
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4373199742739383797}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Size: {x: 1, y: 1.0000002, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}

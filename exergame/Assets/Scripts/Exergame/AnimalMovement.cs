@@ -8,18 +8,18 @@ public class AnimalMovement : MonoBehaviour
     public float repeatRate = 3.0f;
     public Vector3 direction;
 
-    private Rigidbody2D rb;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     { 
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        rb = gameObject.GetComponent<Rigidbody>();
         InvokeRepeating("FindRanomPosition", 0f, repeatRate);
     }
 
     void FindRanomPosition()
     {
-        direction = new Vector3((float)Random.Range(-15.0f, 15.0f), (float)Random.Range(-15.0f, 15.0f), -2.0f);
+        direction = new Vector3((float)Random.Range(-15.0f, 15.0f), (float)Random.Range(-50.0f, 50.0f), (float)Random.Range(-15.0f, 15.0f));
     }
 
     // Update is called once per frame
@@ -28,14 +28,18 @@ public class AnimalMovement : MonoBehaviour
         rb.AddForce(direction* force);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
         CancelInvoke();
-        direction = new Vector3((float)Random.Range(-50.0f, 50.0f), (float)Random.Range(-50.0f, 50.0f), -2.0f);
-        // rb.AddForce(direction * force);
+        // ContactPoint contact = collision.contacts[0];
+        // Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+        // direction = contact.point;
+        direction = new Vector3((float)Random.Range(-50.0f, 50.0f), (float)Random.Range(-50.0f, 50.0f), (float)Random.Range(-50.0f, 50.0f));
+        rb.AddForce(direction * force);
+
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit(Collision collision)
     {
         InvokeRepeating("FindRanomPosition", 1f, repeatRate);
     }

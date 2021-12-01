@@ -34,7 +34,7 @@ public class FireMovement : MonoBehaviour
         int shouldChange = Random.Range(0, 2);
         if (shouldChange == 1)
         {
-            position = new Vector3((float)Random.Range(-game_area_width / 2.0f, game_area_width / 2.0f), (float)Random.Range(-game_area_height / 2.0f, game_area_height / 2.0f), -2.0f);
+            position = new Vector3((float)Random.Range(-game_area_width / 2.0f, game_area_width / 2.0f),-2.0f, (float)Random.Range(-game_area_height / 2.0f, game_area_height / 2.0f));
         }
     }
 }
