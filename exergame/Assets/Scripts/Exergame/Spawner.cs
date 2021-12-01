@@ -56,7 +56,8 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < stone_limit; i++)
         {
             Vector3 position = GetRandomPositionObstacle();
-            GameObject new_stone = Instantiate(stone_prefab, position, Quaternion.identity);
+            Quaternion rotation = Quaternion.Euler(90, 0, 0);
+            GameObject new_stone = Instantiate(stone_prefab, position, rotation);
         }
     }
 
@@ -104,14 +105,16 @@ public class Spawner : MonoBehaviour
     AnimalMovement AddAnimal(Vector3 position)
     {
         animal_count += 1;
-        GameObject new_animal = Instantiate(animal_prefab, position, Quaternion.identity);
+        Quaternion rotation = Quaternion.Euler(90, 0, 0);
+        GameObject new_animal = Instantiate(animal_prefab, position, rotation);
         AnimalMovement animal_script = new_animal.GetComponent<AnimalMovement>();
         return animal_script;
     }
 
     FireMovement AddFire(Vector3 position)
     {
-        GameObject new_fire = Instantiate(fire_prefab, position, Quaternion.identity);
+        Quaternion rotation = Quaternion.Euler(90, 0, 0);
+        GameObject new_fire = Instantiate(fire_prefab, position, rotation);
         FireMovement fire_script = new_fire.GetComponent<FireMovement>();
         return fire_script;
     }

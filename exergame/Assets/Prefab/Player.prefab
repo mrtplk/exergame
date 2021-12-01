@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3421223225410188139}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 288.34482, y: 74.28539, z: -2}
   m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &5470774411221848810
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -100,7 +100,6 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: -2}
   speed: 500
   animal_spawner: {fileID: 2892440897108983445, guid: 2c8d4c8f2ac1349888be5d60219dc8a7, type: 3}
-  score_manager: {fileID: 3101612320522949459, guid: 23c9df1f98a2449d8bd025a029d17608, type: 3}
 --- !u!61 &4839290847441108079
 BoxCollider2D:
   m_ObjectHideFlags: 0
