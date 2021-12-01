@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovementMap : MonoBehaviour
 {
+    public GameObject  scene3;
+    public GameObject  scene4;
+
     public Vector3 player_pos;
     public float speed = 20.0f;
     // public GameObject score_manager;
@@ -19,6 +22,7 @@ public class PlayerMovementMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        scene4.SetActive(false);
         player_pos = gameObject.transform.position;
         hit_counter = 0;
         restart_counter = 0;
@@ -81,6 +85,8 @@ public class PlayerMovementMap : MonoBehaviour
         if (collision.gameObject.name == "end_square")
         {
             print("Win!!!!");
+            scene3.SetActive(false);
+            scene4.SetActive(true);
         }
     }
 
