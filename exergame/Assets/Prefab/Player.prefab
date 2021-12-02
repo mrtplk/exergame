@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6580281436110057367}
   - component: {fileID: 5470774411221848810}
-  - component: {fileID: 2805846602305838720}
   - component: {fileID: 2864515392876699589}
   - component: {fileID: 3092546653041349136}
+  - component: {fileID: 3940727880981246351}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -85,21 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2805846602305838720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3421223225410188139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f4eec5eac0af441284947fc23257557, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  position: {x: 0, y: -2, z: 0}
-  speed: 1000
-  animal_spawner: {fileID: 2892440897108983445, guid: 2c8d4c8f2ac1349888be5d60219dc8a7, type: 3}
 --- !u!65 &2864515392876699589
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -129,3 +114,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &3940727880981246351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421223225410188139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de9e9523cd8d4d22ac24f9cd64576a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  track: {fileID: 0}
