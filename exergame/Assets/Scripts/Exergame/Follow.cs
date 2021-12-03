@@ -7,13 +7,32 @@ public class Follow : MonoBehaviour
     public GameObject track;
     private Vector3 current_position;
 
+
     // Update is called once per frame
     void Update()
     {
+        // print(GameAssets.i.game_area_height);
         current_position = track.transform.position;
-        //scale to fit the screen - TO DO!!!!!
-        //current_position.x = current_position.x / 100;
-        //current_position.z = current_position.z / 100;
+        if(current_position.z  < -GameAssets.i.game_area_height / 2.0f)
+        {
+            current_position.z = (float)-GameAssets.i.game_area_height / 2.0f;
+        }
+
+        if (current_position.z > GameAssets.i.game_area_height / 2.0f)
+        {
+            current_position.z = (float)GameAssets.i.game_area_height / 2.0f;
+        }
+
+        if (current_position.x < -GameAssets.i.game_area_width / 2.0f)
+        {
+            current_position.x = (float)-GameAssets.i.game_area_width / 2.0f;
+        }
+
+        if (current_position.x > GameAssets.i.game_area_width / 2.0f)
+        {
+            current_position.x = (float)GameAssets.i.game_area_width / 2.0f;
+        }
+
         gameObject.transform.position = current_position;
     }
 
