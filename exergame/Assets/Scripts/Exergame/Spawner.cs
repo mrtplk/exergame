@@ -133,8 +133,8 @@ public class Spawner : MonoBehaviour
         InvokeRepeating("MaintainAnimalPopulation", animal_spawn_time, animal_spawn_time);
     }
 
-    /*
-    private void destroyStones()
+    
+    public void destroyStones()
     {
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("Stone"))
         {
@@ -142,12 +142,20 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    private void destroyFire()
+    public void destroyFire()
     {
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("Fire"))
         {
             Destroy(o);
         }
     }
-    */
+
+    public void destroyAnimals()
+    {
+        foreach (GameObject o in GameObject.FindGameObjectsWithTag("Animal"))
+        {
+            Destroy(o);
+        }
+    }
+
 }

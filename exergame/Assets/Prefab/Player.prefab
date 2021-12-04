@@ -126,4 +126,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de9e9523cd8d4d22ac24f9cd64576a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 2892440897108983445, guid: 2c8d4c8f2ac1349888be5d60219dc8a7, type: 3}
   track: {fileID: 0}

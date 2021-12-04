@@ -31,12 +31,8 @@ public class AnimalMovement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         CancelInvoke();
-        // ContactPoint contact = collision.contacts[0];
-        // Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-        // direction = contact.point;
         direction = new Vector3((float)Random.Range(-50.0f, 50.0f), (float)Random.Range(-50.0f, 50.0f), (float)Random.Range(-50.0f, 50.0f));
         rb.AddForce(direction * force);
-
     }
 
     private void OnCollisionExit(Collision collision)

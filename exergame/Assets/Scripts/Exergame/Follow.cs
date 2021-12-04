@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Follow : MonoBehaviour
 {
+    public GameObject spawner;
+    private Spawner spawner_script;
+
     public GameObject track;
     private Vector3 current_position;
 
+    void Start()
+    {
+        spawner_script = spawner.GetComponent<Spawner>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        // print(GameAssets.i.game_area_height);
         current_position = track.transform.position;
         if(current_position.z  < -GameAssets.i.game_area_height / 2.0f)
         {
@@ -43,7 +49,9 @@ public class Follow : MonoBehaviour
             print("animal");
             ScoreManager.ScoreUpdate("A_C");
             // SceneManager.LoadScene("MapScene"); //activate map
-            // Time.timeScale = 0; //freeze scene
+            spawner_script.destroyStones();
+            spawner_script.destroyFire();
+            spawner_script.destroyAnimals();
         }
 
         if (collision.gameObject.tag == "Fire")
@@ -68,4 +76,6 @@ public class Follow : MonoBehaviour
             // Time.timeScale = 0; //unfreeze scene
         }
     }
+
+    
 }
