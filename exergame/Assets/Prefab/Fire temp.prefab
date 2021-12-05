@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7844037041367292802}
   - component: {fileID: 6922162704878289039}
   - component: {fileID: -3858381608453959693}
-  - component: {fileID: -21320652889870202}
   - component: {fileID: -1045399503072103569}
   m_Layer: 0
   m_Name: Fire temp
@@ -114,21 +113,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5000001, z: 0.20000005}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!111 &-21320652889870202
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7616875975485703324}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 75a176e6f40e5415283d5e3ad1fb4db4, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!95 &-1045399503072103569
 Animator:
   serializedVersion: 3
