@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
     public GameObject game_area;
     public GameObject animal_prefab;
     public GameObject fire_prefab;
-    public GameObject stone_prefab;
+    public GameObject[] stone_prefab;
 
     public int animal_limit = 10;
     public int stone_limit = 5;
@@ -58,7 +58,12 @@ public class Spawner : MonoBehaviour
         {
             Vector3 position = GetRandomPositionObstacle();
             Quaternion rotation = Quaternion.Euler(90, 0, 0);
-            GameObject new_stone = Instantiate(stone_prefab, position, rotation);
+            int stoneVariant = Mathf.CeilToInt(Random.Range(0, 3));
+            if (stoneVariant > 2)
+            {
+                stoneVariant = 2;
+            }
+            GameObject new_stone = Instantiate(stone_prefab[stoneVariant], position, rotation);
             new_stone.transform.parent = transform;
         }
     }
