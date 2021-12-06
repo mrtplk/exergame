@@ -46,3 +46,6 @@ MonoBehaviour:
   game_area: {fileID: 4948724681012364081, guid: 9cff669e030b5458a9782ea7cdac21c8, type: 3}
   game_area_width: 0
   game_area_height: 0
+  soundAudioClipArray:
+  - sound: 0
+    audioClip: {fileID: 0}

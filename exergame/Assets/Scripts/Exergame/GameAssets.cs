@@ -29,6 +29,16 @@ public class GameAssets : MonoBehaviour
         game_area_height = rect_transform.sizeDelta.y;
         
     }
-    
+
+    public SoundAudioClip[] soundAudioClipArray;
+
+    [System.Serializable]
+    public class SoundAudioClip
+    {
+        public SoundManager.Sound sound;
+        public AudioClip audioClip;
+
+    }
+
 
 }
