@@ -8,7 +8,7 @@ public class PlayerMovementMap : MonoBehaviour
     public GameObject  scene3;
     public GameObject  scene4;
 
-    public Vector3 player_pos;
+    public GameObject player;
     public float speed = 20.0f;
     // public GameObject score_manager;
 
@@ -22,40 +22,20 @@ public class PlayerMovementMap : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Physics2D.gravity = Vector2.zero;
         scene4.SetActive(false);
-        player_pos = gameObject.transform.position;
         hit_counter = 0;
         restart_counter = 0;
 
         start_point_pos = GameObject.Find("startpoint").transform.position;
         print(start_point_pos);
+        player.transform.position= start_point_pos;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            print("up");
-            player_pos.y += speed * Time.deltaTime;
-        }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            player_pos.y -= speed * Time.deltaTime;
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            player_pos.x += speed * Time.deltaTime;
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            player_pos.x -= speed * Time.deltaTime;
-        }
-
-        transform.position = player_pos;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -70,8 +50,7 @@ public class PlayerMovementMap : MonoBehaviour
             hit_counter += 1;
 
             if(hit_counter >= 3) {
-                player_pos.x = start_point_pos.x;
-                player_pos.y = start_point_pos.y;
+                player.transform.position = start_point_pos;
 
                 hit_counter = 0;
                 restart_counter += 1;
