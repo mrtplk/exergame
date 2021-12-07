@@ -44,8 +44,26 @@ public class PlayerMovementMap : MonoBehaviour
         print(collision.gameObject.tag);
         print(collision.gameObject.name);
 
+        if (collision.gameObject.tag == "Waterdrop")
+        {
+            ScoreManager.ScoreUpdate("D");
+        }
+
+        if (collision.gameObject.tag == "Fire")
+        {
+            print("fire");
+            ScoreManager.ScoreUpdate("F");
+        }
+
+        if (collision.gameObject.tag == "Stone")
+        {
+            print("stone");
+            ScoreManager.ScoreUpdate("S");
+        }
+
         if (collision.gameObject.tag == "Wall")
         {
+            ScoreManager.ScoreUpdate("W");
             print("enter wall");
             hit_counter += 1;
 
@@ -63,9 +81,11 @@ public class PlayerMovementMap : MonoBehaviour
 
         if (collision.gameObject.name == "end_square")
         {
+            ScoreManager.ScoreUpdate("A_S");
             print("Win!!!!");
             scene3.SetActive(false);
             scene4.SetActive(true);
+            SceneChanger.LoadCatchScene();
         }
     }
 

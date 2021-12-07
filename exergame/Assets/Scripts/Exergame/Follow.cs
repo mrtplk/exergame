@@ -48,10 +48,10 @@ public class Follow : MonoBehaviour
         {
             print("animal");
             ScoreManager.ScoreUpdate("A_C");
-            // SceneManager.LoadScene("MapScene"); //activate map
-            spawner_script.destroyStones();
-            spawner_script.destroyFire();
-            spawner_script.destroyAnimals();
+            //spawner_script.destroyStones();
+            //spawner_script.destroyFire();
+            //spawner_script.destroyAnimals();
+            SceneChanger.LoadMapScene(); //activate map
         }
 
         if (collision.gameObject.tag == "Fire")
