@@ -21,7 +21,8 @@ public class CountdownActivation : MonoBehaviour
     {
         print("Clicked!!!");
         //countdown[animation_name].wrapMode = WrapMode.Once;
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
+        SceneChanger.LoadCatchScene();
         // Destroy(gameObject);
     }
 }
