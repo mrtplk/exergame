@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5362292703166988329, guid: 2174381e6160f471c8afba0b170ce2fb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1510b9634d0a442a9a1f6acb6737ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  centreOfRotation: {fileID: 6481260066564043075, guid: ba6fff6b4472943d88d617e5d3994caf, type: 3}
   force: 0.5
   rotationSpeed: 5
   repeatRate: 3
+  prev_direction: {x: 0, y: 0, z: 0}
   direction: {x: 0, y: 0, z: 0}
 --- !u!54 &-4648423386170629959
 Rigidbody:

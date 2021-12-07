@@ -11,6 +11,7 @@ public class AnimalMovement : MonoBehaviour
 
     private Rigidbody rb;
     private bool sectorChanged = true;
+    private int prev_sector=-1, current_sector=-1;
 
     // Start is called before the first frame update
     void Start()
@@ -28,58 +29,67 @@ public class AnimalMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(direction != Vector3.zero)
+        if (direction != Vector3.zero)
         {
+            prev_sector = current_sector;
             Quaternion toRotation;
-            //left, down
-            if (prev_direction.x>direction.x && prev_direction.z > direction.z)
+            //SECTOR 1
+            if (gameObject.transform.localPosition.x > 0 && gameObject.transform.localPosition.z > 0)
             {
-                /*
-                if(direction.x > 0 && direction.z>0)
-                {
-                    toRotation = Quaternion.LookRotation(direction, Vector3.forward);
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime) * Quaternion.Euler(0, 0, 225.0f);
-                }
-                else if (direction.x > 0 && direction.z < 0)
-                {
-                    toRotation = Quaternion.LookRotation(direction, Vector3.forward);
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime) * Quaternion.Euler(0, 0, 135.0f);
-                }
-                else if (direction.x < 0 && direction.z < 0)
-                {
-                    toRotation = Quaternion.LookRotation(direction, Vector3.forward);
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime) * Quaternion.Euler(0, 0, 225.0f);
-                }
-                else if (direction.x < 0 && direction.z > 0)
-                {
-                    toRotation = Quaternion.LookRotation(direction, Vector3.forward);
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime) * Quaternion.Euler(0, 0, 315.0f);
-                }
-                */
-                toRotation = Quaternion.LookRotation(direction, -Vector3.forward + Vector3.left);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);// * Quaternion.Euler(0, 0, 315.0f);
+                current_sector = 1;
             }
-            //right, down
-            else if (prev_direction.x < direction.x && prev_direction.z > direction.z)
+            //SECTOR 2
+            if (gameObject.transform.localPosition.x > 0 && gameObject.transform.localPosition.z < 0)
             {
-                toRotation = Quaternion.LookRotation(direction, -Vector3.forward + Vector3.right);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);// * Quaternion.Euler(0, 0, 315.0f);
+                current_sector = 2;
             }
-            //right, up
-            else if (prev_direction.x < direction.x && prev_direction.z < direction.z)
+            //SECTOR 3
+            if (gameObject.transform.localPosition.x < 0 && gameObject.transform.localPosition.z < 0)
             {
-                toRotation = Quaternion.LookRotation(direction, Vector3.forward+Vector3.right);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);// * Quaternion.Euler(0, 0, 45.0f);
+                current_sector = 3;
             }
-            //left, up
-            else if (prev_direction.x > direction.x && prev_direction.z < direction.z)
+            //SECTOR 4
+            if (gameObject.transform.localPosition.x < 0 && gameObject.transform.localPosition.z > 0)
             {
-                toRotation = Quaternion.LookRotation(direction, Vector3.forward + Vector3.left);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);// * Quaternion.Euler(0, 0, 315.0f);
+                current_sector = 4;
             }
+            if(prev_sector != current_sector)
+            {
+                sectorChanged = true;
+            }
+            else
+            {
+                sectorChanged = false;
+            }
+            print(sectorChanged);
+            if (sectorChanged)
+            {
+                //left, down
+                if (prev_direction.x > direction.x && prev_direction.z > direction.z)
+                {
+                    toRotation = Quaternion.LookRotation(direction, -Vector3.forward + Vector3.left);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);// * Quaternion.Euler(0, 0, 315.0f);
+                }
 
-            //Quaternion toRotation = Quaternion.LookRotation(centreOfRotationPosition*45, Vector3.forward);
-            //transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed*Time.deltaTime);
+                //right, down
+                else if (prev_direction.x < direction.x && prev_direction.z > direction.z)
+                {
+                    toRotation = Quaternion.LookRotation(direction, -Vector3.forward + Vector3.right);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);// * Quaternion.Euler(0, 0, 315.0f);
+                }
+                //right, up
+                else if (prev_direction.x < direction.x && prev_direction.z < direction.z)
+                {
+                    toRotation = Quaternion.LookRotation(direction, Vector3.forward + Vector3.right);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);// * Quaternion.Euler(0, 0, 45.0f);
+                }
+                //left, up
+                else if (prev_direction.x > direction.x && prev_direction.z < direction.z)
+                {
+                    toRotation = Quaternion.LookRotation(direction, Vector3.forward + Vector3.left);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);// * Quaternion.Euler(0, 0, 315.0f);
+                }
+            }
         }
         rb.AddForce(direction* force);
     }
