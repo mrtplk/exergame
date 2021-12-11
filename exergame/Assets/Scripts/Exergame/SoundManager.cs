@@ -12,16 +12,13 @@ public static class SoundManager
     public enum Sound
     {
         FootSteps,
+        FireTouch,
+        WaterdropTouch,
+        StoneTouch,
+        BackgroundMusicStart,
+        BackgroundMusicGround,
+        BackgrounMusicFront,
     }
-
-    /*
-    private static Dictionary<Sound, float> soundTimerDictionary;
-
-    public static void Initialize()
-    {
-        soundTimerDictionary = new Dictionary<Sound, float>();
-    }
-    */
 
     public static void PlaySound(Sound sound)
     {

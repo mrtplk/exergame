@@ -53,12 +53,14 @@ public class PlayerMovementMap : MonoBehaviour
         {
             print("fire");
             ScoreManager.ScoreUpdate("F");
+            SoundManager.PlayBackgroundMusic(SoundManager.Sound.FireTouch);
         }
 
         if (collision.gameObject.tag == "Stone")
         {
             print("stone");
             ScoreManager.ScoreUpdate("S");
+            SoundManager.PlayBackgroundMusic(SoundManager.Sound.StoneTouch);
         }
 
         if (collision.gameObject.tag == "Wall")
