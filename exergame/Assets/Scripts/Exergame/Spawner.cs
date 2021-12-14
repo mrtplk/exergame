@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     public GameObject fire_prefab;
     public GameObject[] stone_prefab;
 
-    public int animal_limit = 10;
+    public static int animal_limit = ScoreManager.animal_to_catch_level_1;
     public int stone_limit = 5;
     public int fire_limit = 4;
 
@@ -41,6 +41,7 @@ public class Spawner : MonoBehaviour
             Vector3 position = GetRandomPositionAnimal();
             AnimalMovement new_animal = AddAnimal(position);
         }
+
     }
 
     void SpawnFire()

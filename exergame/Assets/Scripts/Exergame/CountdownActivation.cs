@@ -8,7 +8,7 @@ public class CountdownActivation : MonoBehaviour
 
     void Start()
     {
-        gameObject.SetActive(false);
+        // gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -19,9 +19,8 @@ public class CountdownActivation : MonoBehaviour
 
     public void ActivateCountdown()
     {
-        print("Clicked!!!");
         //countdown[animation_name].wrapMode = WrapMode.Once;
-        gameObject.SetActive(true);
+        // gameObject.SetActive(true);
         SceneChanger.LoadCatchScene();
         // Destroy(gameObject);
     }

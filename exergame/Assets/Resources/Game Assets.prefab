@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35103a6e3605443e59422bc1987ab58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game_area: {fileID: 0}
+  game_area: {fileID: 4948724681012364081, guid: 9cff669e030b5458a9782ea7cdac21c8, type: 3}
   game_area_width: 581
   game_area_height: 289
   soundAudioClipArray:

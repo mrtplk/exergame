@@ -10,8 +10,12 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ScoreManager.Initialise();
-        current_score = ScoreManager.score;
+        if(SceneChanger.chatchSceneReloaded == 1)
+        {
+            ScoreManager.Init();
+            current_score = ScoreManager.score;
+        }     
+        setScore(current_score);
     }
 
     // Update is called once per frame

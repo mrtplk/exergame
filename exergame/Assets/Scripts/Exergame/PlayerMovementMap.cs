@@ -77,17 +77,34 @@ public class PlayerMovementMap : MonoBehaviour
             }
 
             if(restart_counter == 3) {
-                print("Lost game");
+                print("Animal not saved");
+                ScoreManager.AnimalDead();
+                if (!ScoreManager.end)
+                {
+                    SceneChanger.LoadCatchScene();
+                }
+                else
+                {
+                    //load end scene
+                }
             }
         }
 
         if (collision.gameObject.name == "end_square")
         {
             ScoreManager.ScoreUpdate("A_S");
-            print("Win!!!!");
+            print("Animal saved!!!!");
+            ScoreManager.AnimalSaved();
             scene3.SetActive(false);
             scene4.SetActive(true);
-            SceneChanger.LoadCatchScene();
+            if (!ScoreManager.end)
+            {
+                SceneChanger.LoadCatchScene();
+            }
+            else
+            {
+                //load end scene
+            }
         }
     }
 
