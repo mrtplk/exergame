@@ -7,6 +7,8 @@ public class PlayerMovementMap : MonoBehaviour
 {
     public GameObject  scene3;
     public GameObject  scene4;
+    public GameObject  scene5;
+    public GameObject  scene6;
 
     public GameObject player;
     public float speed = 20.0f;
@@ -24,6 +26,9 @@ public class PlayerMovementMap : MonoBehaviour
     {
         Physics2D.gravity = Vector2.zero;
         scene4.SetActive(false);
+        scene5.SetActive(false);
+        scene6.SetActive(false);
+
         hit_counter = 0;
         restart_counter = 0;
 
@@ -35,7 +40,7 @@ public class PlayerMovementMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -71,7 +76,6 @@ public class PlayerMovementMap : MonoBehaviour
 
             if(hit_counter >= 3) {
                 player.transform.position = start_point_pos;
-
                 hit_counter = 0;
                 restart_counter += 1;
             }
@@ -81,11 +85,15 @@ public class PlayerMovementMap : MonoBehaviour
                 ScoreManager.AnimalDead();
                 if (!ScoreManager.end)
                 {
+                    scene3.SetActive(false);
+                    scene5.SetActive(true);
                     SceneChanger.LoadCatchScene();
+
                 }
                 else
                 {
-                    //load end scene
+                    scene3.SetActive(false);
+                    scene6.SetActive(true);
                 }
             }
         }
@@ -97,14 +105,16 @@ public class PlayerMovementMap : MonoBehaviour
             ScoreManager.AnimalSaved();
             scene3.SetActive(false);
             scene4.SetActive(true);
-            if (!ScoreManager.end)
-            {
+             if (!ScoreManager.end)
+             {
                 SceneChanger.LoadCatchScene();
-            }
-            else
-            {
-                //load end scene
-            }
+             }
+             else
+             {
+                 scene3.SetActive(false);
+                 scene6.SetActive(true);
+             }
+            
         }
     }
 

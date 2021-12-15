@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CountdownActivation : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class CountdownActivation : MonoBehaviour
     {
         //countdown[animation_name].wrapMode = WrapMode.Once;
         // gameObject.SetActive(true);
-        SceneChanger.LoadCatchScene();
+        // SceneChanger.LoadCatchScene();
         // Destroy(gameObject);
     }
 }

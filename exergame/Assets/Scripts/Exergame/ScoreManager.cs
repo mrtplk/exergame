@@ -16,7 +16,7 @@ public static class ScoreManager
     public static int points_touch_wall = -10; //W
     public static int points_touch_fire = -10; //F
 
-    public static int animal_to_catch_level_1 = 2;
+    public static int animal_to_catch_level_1 = 5;
     public static int animals_saved = 0;
     public static int animals_dead = 0;
 
@@ -62,15 +62,14 @@ public static class ScoreManager
 
     public static void AnimalSaved()
     {
-        animals_saved++;
+        ++animals_saved;
         Spawner.animal_limit--;
-        end = isEnd();
-        
+        end = isEnd(); 
     }
 
     public static void AnimalDead()
     {
-        animals_dead++;
+        ++animals_dead;
         Spawner.animal_limit--;
         end = isEnd();
     }
