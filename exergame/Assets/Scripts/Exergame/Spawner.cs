@@ -20,6 +20,7 @@ public class Spawner : MonoBehaviour
     public float fire_spawn_time = 5.0f;
 
     public float game_area_width, game_area_height;
+    public float gap_up = 85.0f;
     private RectTransform rect_transform;
 
     // Start is called before the first frame update
@@ -81,16 +82,16 @@ public class Spawner : MonoBehaviour
         else if (rand_variant == 1)
         {
             float rand_x = Random.Range((float)-game_area_width / 2.0f, (float)game_area_width / 2.0f);
-            position = new Vector3((float)rand_x, -2.0f, (float)game_area_height/2.0f);
+            position = new Vector3((float)rand_x, -2.0f, (float)game_area_height/2.0f- gap_up);
         }
         else if(rand_variant == 2)
         {
-            float rand_y = Random.Range((float)-game_area_height / 2.0f, (float)game_area_height/2.0f);
+            float rand_y = Random.Range((float)-game_area_height / 2.0f, (float)game_area_height/2.0f- gap_up);
             position = new Vector3((float)game_area_width/2.0f, -2.0f, (float)rand_y);
         }
         else
         {
-            float rand_y = Random.Range((float)-game_area_height / 2.0f, (float)game_area_height / 2.0f);
+            float rand_y = Random.Range((float)-game_area_height / 2.0f, (float)game_area_height / 2.0f- gap_up);
             position = new Vector3((float)-game_area_width / 2, -2.0f, (float)rand_y);
         }
         
@@ -103,7 +104,7 @@ public class Spawner : MonoBehaviour
         Vector3 position;
 
         screenX = Random.Range(-game_area_width / 2.0f, game_area_width / 2.0f);
-        screenY = Random.Range(-game_area_height/2.0f, game_area_height/2.0f);
+        screenY = Random.Range(-game_area_height/2.0f, game_area_height/2.0f- gap_up);
         position = new Vector3((float)screenX, -2.0f, (float)screenY);
         return position;
     }
