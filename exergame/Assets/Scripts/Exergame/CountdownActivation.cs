@@ -25,11 +25,13 @@ public class CountdownActivation : MonoBehaviour
         while (countdownTime > 0)
         {
             ct.text = countdownTime.ToString();
+            SoundManager.PlaySound(SoundManager.Sound._123Sound);
             yield return new WaitForSeconds(2f);
             countdownTime--;
         }
 
         ct.text = "GO!";
+        SoundManager.PlaySound(SoundManager.Sound.GOSound);
         yield return new WaitForSeconds(4f);
         SceneChanger.LoadCatchScene();
     }

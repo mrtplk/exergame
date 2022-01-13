@@ -16,6 +16,8 @@ public static class SoundManager
         WaterdropTouch,
         StoneTouch,
         AnimalCatch,
+        _123Sound,
+        GOSound,
         BackgroundMusicStart,
         BackgroundMusicGround,
         BackgrounMusicFront,
