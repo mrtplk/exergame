@@ -21,6 +21,15 @@ public static class SoundManager
         BackgroundMusicStart,
         BackgroundMusicGround,
         BackgrounMusicFront,
+        TakeCareSound,
+        TryAgainSound,
+        HurrySound,
+        GreatSound,
+        GoodLuckSound,
+        ExcellentSound,
+        CongratulationsSound,
+        BetterLuckNextTimeSound,
+        AnimalIsHomeSound,
     }
 
     public static void PlaySound(Sound sound)
