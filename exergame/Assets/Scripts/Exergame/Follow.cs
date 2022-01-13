@@ -10,9 +10,13 @@ public class Follow : MonoBehaviour
     public GameObject track;
     private Vector3 current_position;
 
+    public GameObject prompt_controller;
+    private PromptController prompt_controller_script;
+
     void Start()
     {
         spawner_script = spawner.GetComponent<Spawner>();
+        prompt_controller_script = prompt_controller.GetComponent<PromptController>();
     }
 
     // Update is called once per frame
@@ -51,23 +55,35 @@ public class Follow : MonoBehaviour
             //spawner_script.destroyStones();
             //spawner_script.destroyFire();
             //spawner_script.destroyAnimals();
+            //TO DO: NOT WORKING!!!
+            int n = Random.Range(0, 1);
+            prompt_controller_script.showPrompt(collision.gameObject.transform.position, n);
+            //
             SceneChanger.LoadMapScene(); //activate map
         }
 
         if (collision.gameObject.tag == "Fire")
         {
+            //TO DO: NOT WORKING!!!
             print("fire");
+            prompt_controller_script.showPrompt(collision.gameObject.transform.position, 3);
+            //
+            SoundManager.PlaySound(SoundManager.Sound.FireTouch);
             ScoreManager.ScoreUpdate("F");
         }
 
         if (collision.gameObject.tag == "Stone")
         {
+            //TO DO: NOT WORKING!!!
             print("stone");
+            prompt_controller_script.showPrompt(collision.gameObject.transform.position, 3);
+            //
+            SoundManager.PlaySound(SoundManager.Sound.StoneTouch);
             ScoreManager.ScoreUpdate("S");
         }
     }
 
-    private void OnCollisionExit(Collision2D collision)
+    private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Animal")
         {

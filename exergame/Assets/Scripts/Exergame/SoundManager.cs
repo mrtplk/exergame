@@ -15,6 +15,7 @@ public static class SoundManager
         FireTouch,
         WaterdropTouch,
         StoneTouch,
+        AnimalCatch,
         BackgroundMusicStart,
         BackgroundMusicGround,
         BackgrounMusicFront,

@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision2D collision)
+    private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Animal")
         {

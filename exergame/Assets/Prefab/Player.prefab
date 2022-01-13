@@ -128,3 +128,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 2892440897108983445, guid: 2c8d4c8f2ac1349888be5d60219dc8a7, type: 3}
   track: {fileID: 0}
+  prompt_controller: {fileID: 3739123277126993201, guid: b470eb1d0503f403b9be5bb97f8985b0, type: 3}
