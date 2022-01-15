@@ -7,10 +7,13 @@ public class SpawnerMap : MonoBehaviour
 {
     public GameObject game_area;
     public GameObject fire_prefab;
+    public GameObject water_prefab;
     public GameObject[] stone_prefab;
 
     public int stone_limit = 5;
     public int fire_limit = 5;
+    public int water_limit = 5;
+
 
     public float fire_spawn_time = 5.0f;
 
@@ -25,6 +28,7 @@ public class SpawnerMap : MonoBehaviour
         game_area_height = 10;
         SpawnFire();
         SpawnStones();
+        SpawnWaters();
     }
 
 
@@ -54,6 +58,18 @@ public class SpawnerMap : MonoBehaviour
             GameObject new_stone = Instantiate(stone_prefab[stoneVariant], position, rotation);
             new_stone.transform.parent = transform;
             new_stone.transform.localScale = new Vector3(0.31f, 0.31f, 0.31f);
+        }
+    }
+
+    void SpawnWaters()
+    {
+        for (int i = 0; i < water_limit; i++)
+        {
+            Vector3 position = GetRandomPositionObstacle();
+            Quaternion rotation = Quaternion.Euler(0, 0, 0);
+            GameObject new_water = Instantiate(water_prefab, position, rotation);
+            new_water.transform.parent = transform;
+            new_water.transform.localScale = new Vector3(0.31f, 0.31f, 0.31f);
         }
     }
 
