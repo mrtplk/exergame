@@ -19,5 +19,6 @@ public static class SceneChanger
         chatchSceneReloaded++;
         SceneManager.LoadScene("OfficialGameScene");
     }
+
 }
 

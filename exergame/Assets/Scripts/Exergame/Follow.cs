@@ -13,8 +13,11 @@ public class Follow : MonoBehaviour
     public GameObject prompt_controller;
     private PromptController prompt_controller_script;
 
+    private int take_care_counter;
+
     void Start()
     {
+        take_care_counter = 0;
         spawner_script = spawner.GetComponent<Spawner>();
         prompt_controller_script = prompt_controller.GetComponent<PromptController>();
     }
@@ -50,35 +53,56 @@ public class Follow : MonoBehaviour
     {
         if (collision.gameObject.tag == "Animal")
         {
-            print("animal");
             ScoreManager.ScoreUpdate("A_C");
             //spawner_script.destroyStones();
             //spawner_script.destroyFire();
             //spawner_script.destroyAnimals();
-            //TO DO: NOT WORKING!!!
+
             int n = Random.Range(0, 1);
+            if (n == 0)
+            {
+                SoundManager.PlaySound(SoundManager.Sound.GreatSound);
+            }
+            else
+            {
+                SoundManager.PlaySound(SoundManager.Sound.ExcellentSound);
+            }
             prompt_controller_script.showPrompt(collision.gameObject.transform.position, n);
-            //
-            SceneChanger.LoadMapScene(); //activate map
+            DelayMap();
+            //SceneChanger.LoadMapScene(); //activate map
         }
 
         if (collision.gameObject.tag == "Fire")
         {
-            //TO DO: NOT WORKING!!!
-            print("fire");
+            
+            if (take_care_counter == 10)
+            {
+                SoundManager.PlaySound(SoundManager.Sound.TakeCareSound);
+                take_care_counter = 0;
+            }
+            else
+            {
+                take_care_counter++;
+                SoundManager.PlaySound(SoundManager.Sound.FireTouch);
+            }
             prompt_controller_script.showPrompt(collision.gameObject.transform.position, 3);
-            //
-            SoundManager.PlaySound(SoundManager.Sound.FireTouch);
             ScoreManager.ScoreUpdate("F");
         }
 
         if (collision.gameObject.tag == "Stone")
         {
-            //TO DO: NOT WORKING!!!
-            print("stone");
+            if (take_care_counter == 10)
+            {
+                SoundManager.PlaySound(SoundManager.Sound.TakeCareSound);
+                take_care_counter = 0;
+            }
+            else
+            {
+                take_care_counter++;
+                SoundManager.PlaySound(SoundManager.Sound.StoneTouch);
+            }
             prompt_controller_script.showPrompt(collision.gameObject.transform.position, 3);
-            //
-            SoundManager.PlaySound(SoundManager.Sound.StoneTouch);
+            
             ScoreManager.ScoreUpdate("S");
         }
     }
@@ -88,10 +112,18 @@ public class Follow : MonoBehaviour
         if (collision.gameObject.tag == "Animal")
         {
             print("animal");
-            // SceneManager.LoadScene("MapScene"); //desactivate map
-            // Time.timeScale = 0; //unfreeze scene
         }
     }
 
-    
+    private void DelayMap()
+    {
+        Invoke("CallMap", 2.0f);
+    }
+
+    private void CallMap()
+    {
+        SceneChanger.LoadMapScene();
+    }
+
+
 }

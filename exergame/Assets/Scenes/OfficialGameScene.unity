@@ -2162,6 +2162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: great_prompt
       objectReference: {fileID: 0}
+    - target: {fileID: 4505144482943075, guid: 6f07ff430b8664ccdabd6a1c35f54ac1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4505144482943388, guid: 6f07ff430b8664ccdabd6a1c35f54ac1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2245,6 +2249,14 @@ PrefabInstance:
     - target: {fileID: 4505144482943388, guid: 6f07ff430b8664ccdabd6a1c35f54ac1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4505144482943389, guid: 6f07ff430b8664ccdabd6a1c35f54ac1, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4505144482943389, guid: 6f07ff430b8664ccdabd6a1c35f54ac1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f07ff430b8664ccdabd6a1c35f54ac1, type: 3}
@@ -2343,6 +2355,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: try_again_prompt
       objectReference: {fileID: 0}
+    - target: {fileID: 135929847518418126, guid: 84fa7e069b00f43c68e7ff0a0ed1ee79, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84fa7e069b00f43c68e7ff0a0ed1ee79, type: 3}
 --- !u!1001 &3739123275885865252
@@ -2350,7 +2366,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1603496545}
     m_Modifications:
     - target: {fileID: 3739123277126993201, guid: b470eb1d0503f403b9be5bb97f8985b0, type: 3}
       propertyPath: m_Name
@@ -2358,19 +2374,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3739123277126993202, guid: b470eb1d0503f403b9be5bb97f8985b0, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3739123277126993202, guid: b470eb1d0503f403b9be5bb97f8985b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5442505
+      value: 3.5442533
       objectReference: {fileID: 0}
     - target: {fileID: 3739123277126993202, guid: b470eb1d0503f403b9be5bb97f8985b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6460876
+      value: 0.00033283234
       objectReference: {fileID: 0}
     - target: {fileID: 3739123277126993202, guid: b470eb1d0503f403b9be5bb97f8985b0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00033569336
+      value: -8.6460905
       objectReference: {fileID: 0}
     - target: {fileID: 3739123277126993202, guid: b470eb1d0503f403b9be5bb97f8985b0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2400,6 +2416,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3739123277126993203, guid: b470eb1d0503f403b9be5bb97f8985b0, type: 3}
+      propertyPath: promptMessage
+      value: 
+      objectReference: {fileID: 383011408}
     - target: {fileID: 3739123277126993203, guid: b470eb1d0503f403b9be5bb97f8985b0, type: 3}
       propertyPath: promptMessages.Array.data[0]
       value: 
@@ -2493,6 +2513,10 @@ PrefabInstance:
     - target: {fileID: 5322914942928645613, guid: 7adedc85ea7014fd881feee3eee134d0, type: 3}
       propertyPath: m_Name
       value: excellent_prompt
+      objectReference: {fileID: 0}
+    - target: {fileID: 5322914942928645613, guid: 7adedc85ea7014fd881feee3eee134d0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5322914942928645618, guid: 7adedc85ea7014fd881feee3eee134d0, type: 3}
       propertyPath: m_Pivot.x
@@ -2590,6 +2614,10 @@ PrefabInstance:
     - target: {fileID: 5402992952840213888, guid: 00fc120b68d5d4dbabe1d3fca80c82d8, type: 3}
       propertyPath: m_Name
       value: take_care_prompt
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402992952840213888, guid: 00fc120b68d5d4dbabe1d3fca80c82d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5402992952840213889, guid: 00fc120b68d5d4dbabe1d3fca80c82d8, type: 3}
       propertyPath: m_Pivot.x
