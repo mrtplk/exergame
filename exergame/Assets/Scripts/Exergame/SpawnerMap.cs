@@ -10,7 +10,7 @@ public class SpawnerMap : MonoBehaviour
     public GameObject[] stone_prefab;
 
     public int stone_limit = 5;
-    public int fire_limit = 4;
+    public int fire_limit = 5;
 
     public float fire_spawn_time = 5.0f;
 
@@ -30,10 +30,13 @@ public class SpawnerMap : MonoBehaviour
 
     void SpawnFire()
     {
-        for(int i=0; i < fire_limit; i++)
+        for (int i = 0; i < fire_limit; i++)
         {
             Vector3 position = GetRandomPositionObstacle();
-            FireMovement new_fire = AddFire(position);
+            Quaternion rotation = Quaternion.Euler(0, 0, 0);
+            GameObject new_fire = Instantiate(fire_prefab, position, rotation);
+            new_fire.transform.parent = transform;
+            new_fire.transform.localScale = new Vector3(0.15f, 0.15f, 0f);
         }
     }
 
@@ -62,27 +65,16 @@ public class SpawnerMap : MonoBehaviour
         Vector3 position;
 
         screenX = Random.Range(-game_area_width / 2.0f, game_area_width / 2.0f);
-        screenY = Random.Range(-game_area_height/2.0f, game_area_height/2.0f);
-        position = new Vector3((float)screenX, (float)screenY, 0) ;
+        screenY = Random.Range(-game_area_height / 2.0f, game_area_height / 2.0f);
+        position = new Vector3((float)screenX, (float)screenY, 0);
         return position;
-    }
-
-
-    FireMovement AddFire(Vector3 position)
-    {
-        Quaternion rotation = Quaternion.Euler(0, 0, 0);
-        GameObject new_fire = Instantiate(fire_prefab, position, rotation);
-        new_fire.transform.parent = transform;
-        new_fire.transform.localScale = new Vector3(0.21f, 0.21f, 0.21f);
-        FireMovement fire_script = new_fire.GetComponent<FireMovement>();
-        return fire_script;
     }
 
     public void Stop()
     {
         CancelInvoke();
     }
-    
+
     public void destroyStones()
     {
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("Stone"))
