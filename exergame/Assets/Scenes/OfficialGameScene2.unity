@@ -1606,12 +1606,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   game_area: {fileID: 1159898665}
   fire_prefab: {fileID: 7616875975485703324, guid: 5413edf6f4163441fbc8d38d6843b137, type: 3}
+  water_prefab: {fileID: 5051925353419127714, guid: 63c3143d3676e4f29b221ad5476201b4, type: 3}
   stone_prefab:
   - {fileID: 4373199742739383797, guid: 1fffa1c8fe32d4c209f45f27e82c9a1b, type: 3}
   - {fileID: 5569549948686933910, guid: 3d1b5d6017d65490a9ce8deb07a43b99, type: 3}
   - {fileID: 2673960143498622310, guid: 19d6ec61e29f04d7aa23df339decca4f, type: 3}
   stone_limit: 5
   fire_limit: 4
+  water_limit: 5
   fire_spawn_time: 5
   game_area_width: 0
   game_area_height: 0
