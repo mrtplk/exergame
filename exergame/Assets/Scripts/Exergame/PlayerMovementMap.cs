@@ -5,10 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovementMap : MonoBehaviour
 {
-    public GameObject  scene3;
-    public GameObject  scene4;
-    public GameObject  scene5;
-    public GameObject  scene6;
+    public GameObject scene3;
+    public GameObject scene4;
+    public GameObject scene5;
+    public GameObject scene6;
+
+    public GameObject checkpoint1;
+    public GameObject checkpoint2;
+
+    public GameObject footstep1;
+    public GameObject footstep2;
+    public GameObject footstep3;
 
     public GameObject player;
     public float speed = 20.0f;
@@ -34,13 +41,27 @@ public class PlayerMovementMap : MonoBehaviour
 
         start_point_pos = GameObject.Find("startpoint").transform.position;
         print(start_point_pos);
-        player.transform.position= start_point_pos;
+        player.transform.position = start_point_pos;
+
+        footstep2.SetActive(false);
+        footstep3.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        if (player.transform.position.x > checkpoint1.transform.position.x)
+        {
+            footstep1.SetActive(false);
+            footstep2.SetActive(true);
+            footstep3.SetActive(false);
+        }
+        else if (player.transform.position.x > checkpoint2.transform.position.x)
+        {
+            footstep1.SetActive(false);
+            footstep2.SetActive(false);
+            footstep3.SetActive(true);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -74,13 +95,24 @@ public class PlayerMovementMap : MonoBehaviour
             print("enter wall");
             hit_counter += 1;
 
-            if(hit_counter >= 3) {
-                player.transform.position = start_point_pos;
+            if (hit_counter >= 3)
+            {
+                {
+                    if (player.transform.position.x > checkpoint1.transform.position.x)
+                    {
+                        player.transform.position = checkpoint1.transform.position;
+                    }
+                    else if (player.transform.position.x > checkpoint2.transform.position.x)
+                    {
+                        player.transform.position = checkpoint2.transform.position;
+                    }
+                }
                 hit_counter = 0;
                 restart_counter += 1;
             }
 
-            if(restart_counter == 3) {
+            if (restart_counter == 3)
+            {
                 print("Animal not saved");
                 ScoreManager.AnimalDead();
                 if (!ScoreManager.end)
@@ -105,16 +137,16 @@ public class PlayerMovementMap : MonoBehaviour
             ScoreManager.AnimalSaved();
             scene3.SetActive(false);
             scene4.SetActive(true);
-             if (!ScoreManager.end)
-             {
+            if (!ScoreManager.end)
+            {
                 SceneChanger.LoadCatchScene();
-             }
-             else
-             {
-                 scene3.SetActive(false);
-                 scene6.SetActive(true);
-             }
-            
+            }
+            else
+            {
+                scene3.SetActive(false);
+                scene6.SetActive(true);
+            }
+
         }
     }
 
