@@ -30,6 +30,7 @@ public static class SoundManager
         CongratulationsSound,
         BetterLuckNextTimeSound,
         AnimalIsHomeSound,
+        WallHitSound
     }
 
     public static void PlaySound(Sound sound)

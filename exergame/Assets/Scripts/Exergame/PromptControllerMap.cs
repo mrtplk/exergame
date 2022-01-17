@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PromptControllerMap : MonoBehaviour
 {
     public List<GameObject> promptMessages = new List<GameObject>();
-    private List<SpriteRenderer> promptMessageImages = new List<SpriteRenderer>();
+    private List<Image> promptMessageImages = new List<Image>();
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class PromptControllerMap : MonoBehaviour
         {
             if (promptMessages[i])
             {
-                promptMessageImages.Add(promptMessages[i].GetComponent<SpriteRenderer>());
+                promptMessageImages.Add(promptMessages[i].GetComponent<Image>());
                 promptMessageImages[i].color = new Color(1, 1, 1, 0);
             }
         }
@@ -29,7 +29,7 @@ public class PromptControllerMap : MonoBehaviour
         StartCoroutine(FadeImage(promptMessageImages[prompt_number], true));
     }
 
-    IEnumerator FadeImage(SpriteRenderer img, bool fadeAway)
+    IEnumerator FadeImage(Image img, bool fadeAway)
     {
         // fade from opaque to transparent
         if (fadeAway)

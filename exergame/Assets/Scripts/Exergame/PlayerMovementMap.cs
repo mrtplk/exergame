@@ -51,6 +51,8 @@ public class PlayerMovementMap : MonoBehaviour
 
         take_care_counter = 0;
         watch_out_counter = 0;
+
+        prompt_controller_script = prompt_controller.GetComponent<PromptControllerMap>();
     }
 
     // Update is called once per frame
@@ -83,12 +85,12 @@ public class PlayerMovementMap : MonoBehaviour
             if (n%2 == 0)
             {
                 SoundManager.PlaySound(SoundManager.Sound.GreatSound);
-                //prompt_controller_script.showPrompt(0);
+                prompt_controller_script.showPrompt(0);
             }
             else
             {
                 SoundManager.PlaySound(SoundManager.Sound.ExcellentSound);
-                //prompt_controller_script.showPrompt(1);
+                prompt_controller_script.showPrompt(1);
             }
         }
 
@@ -96,7 +98,7 @@ public class PlayerMovementMap : MonoBehaviour
         {
             ScoreManager.ScoreUpdate("F");
             collision.gameObject.gameObject.SetActive(false);
-            if (take_care_counter == 10)
+            if (take_care_counter == 3)
             {
                 SoundManager.PlaySound(SoundManager.Sound.TakeCareSound);
                 take_care_counter = 0;
@@ -106,7 +108,7 @@ public class PlayerMovementMap : MonoBehaviour
                 take_care_counter++;
                 SoundManager.PlaySound(SoundManager.Sound.FireTouch);
             }
-            //prompt_controller_script.showPrompt(collision.gameObject.transform.position, 3);
+            prompt_controller_script.showPrompt(3);
         }
 
         if (collision.gameObject.tag == "Stone")
@@ -124,18 +126,20 @@ public class PlayerMovementMap : MonoBehaviour
                 take_care_counter++;
                 SoundManager.PlaySound(SoundManager.Sound.StoneTouch);
             }
-            //prompt_controller_script.showPrompt(collision.gameObject.transform.position, 3);       
+            prompt_controller_script.showPrompt(3);       
         }
 
         if (collision.gameObject.tag == "Wall")
         {
             ScoreManager.ScoreUpdate("W");
             hit_counter += 1;
-            SoundManager.PlaySound(SoundManager.Sound.StoneTouch);
+            SoundManager.PlaySound(SoundManager.Sound.WallHitSound);
+            prompt_controller_script.showPrompt(3);
 
             if (hit_counter >= 3)
             {
                 SoundManager.PlaySound(SoundManager.Sound.TakeCareSound);
+                prompt_controller_script.showPrompt(3);
                 {
                     if (player.transform.position.x > checkpoint1.transform.position.x)
                     {
@@ -155,7 +159,7 @@ public class PlayerMovementMap : MonoBehaviour
             {
                 ScoreManager.AnimalDead();
                 SoundManager.PlaySound(SoundManager.Sound.TryAgainSound);
-                //prompt_controller_script.showPrompt(collision.gameObject.transform.position, 3);
+                prompt_controller_script.showPrompt(2);
                 if (!ScoreManager.end)
                 {
                     scene3.SetActive(false);
@@ -173,14 +177,14 @@ public class PlayerMovementMap : MonoBehaviour
 
         if (collision.gameObject.name == "end_square")
         {
+            SoundManager.PlaySound(SoundManager.Sound.AnimalIsHomeSound);
             ScoreManager.ScoreUpdate("A_S");
-            print("Animal saved!!!!");
             ScoreManager.AnimalSaved();
             scene3.SetActive(false);
             scene4.SetActive(true);
             if (!ScoreManager.end)
             {
-                SceneChanger.LoadCatchScene();
+                DelayGroundScene();
             }
             else
             {
@@ -197,6 +201,16 @@ public class PlayerMovementMap : MonoBehaviour
         {
             print("exit wall");
         }
+    }
+
+    private void DelayGroundScene()
+    {
+        Invoke("CallCatchScene", 2.0f);
+    }
+
+    private void CallCatchScene()
+    {
+        SceneChanger.LoadCatchScene();
     }
 
 
