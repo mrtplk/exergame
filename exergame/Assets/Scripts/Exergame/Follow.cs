@@ -58,16 +58,18 @@ public class Follow : MonoBehaviour
             //spawner_script.destroyFire();
             //spawner_script.destroyAnimals();
 
-            int n = Random.Range(0, 1);
+            int n = Random.Range(0, 2);
             if (n == 0)
             {
                 SoundManager.PlaySound(SoundManager.Sound.GreatSound);
+                prompt_controller_script.showPrompt(collision.gameObject.transform.position, n);
             }
-            else
+            else if (n == 1)
             {
                 SoundManager.PlaySound(SoundManager.Sound.ExcellentSound);
+                prompt_controller_script.showPrompt(collision.gameObject.transform.position, n);
             }
-            prompt_controller_script.showPrompt(collision.gameObject.transform.position, n);
+            
             DelayMap();
             //SceneChanger.LoadMapScene(); //activate map
         }

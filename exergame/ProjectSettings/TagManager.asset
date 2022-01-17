@@ -10,6 +10,7 @@ TagManager:
   - Stone
   - Wall
   - Sound
+  - Waterdrop
   layers:
   - Default
   - TransparentFX
