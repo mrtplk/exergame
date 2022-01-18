@@ -7192,9 +7192,9 @@ MonoBehaviour:
     - {fileID: 0}
   interactiveArea:
     center: {x: 0, y: 0, z: 0}
-    width: 16
-    depth: 9
-    height: 9
+    width: 10
+    depth: 10
+    height: 60
 --- !u!1 &2051368534
 GameObject:
   m_ObjectHideFlags: 0
