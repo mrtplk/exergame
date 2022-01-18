@@ -138,8 +138,12 @@ public class PlayerMovementMap : MonoBehaviour
 
             if (hit_counter >= 3)
             {
-                SoundManager.PlaySound(SoundManager.Sound.TakeCareSound);
-                prompt_controller_script.showPrompt(3);
+                if(hit_counter!=3)
+                {
+                    SoundManager.PlaySound(SoundManager.Sound.TakeCareSound);
+                    prompt_controller_script.showPrompt(3);
+                }
+                              
                 {
                     if (player.transform.position.x > checkpoint1.transform.position.x)
                     {
@@ -162,13 +166,16 @@ public class PlayerMovementMap : MonoBehaviour
                 prompt_controller_script.showPrompt(2);
                 if (!ScoreManager.end)
                 {
+                    //DelayScene5();
                     scene3.SetActive(false);
                     scene5.SetActive(true);
-                    SceneChanger.LoadCatchScene();
+                    DelayGroundScene();
+                    //SceneChanger.LoadCatchScene();
 
                 }
                 else
                 {
+                    SoundManager.PlaySound(SoundManager.Sound.CongratulationsSound);
                     scene3.SetActive(false);
                     scene6.SetActive(true);
                 }
@@ -188,6 +195,7 @@ public class PlayerMovementMap : MonoBehaviour
             }
             else
             {
+                SoundManager.PlaySound(SoundManager.Sound.CongratulationsSound);
                 scene3.SetActive(false);
                 scene6.SetActive(true);
             }
@@ -205,13 +213,12 @@ public class PlayerMovementMap : MonoBehaviour
 
     private void DelayGroundScene()
     {
-        Invoke("CallCatchScene", 2.0f);
+        Invoke("CallCatchScene", 3.0f);
     }
 
     private void CallCatchScene()
     {
         SceneChanger.LoadCatchScene();
     }
-
 
 }

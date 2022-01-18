@@ -572,6 +572,7 @@ GameObject:
   - component: {fileID: 1023194982}
   - component: {fileID: 1023194981}
   - component: {fileID: 1023194980}
+  - component: {fileID: 1023194983}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -593,9 +594,9 @@ RectTransform:
   m_Father: {fileID: 1382854939}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -397, y: 195}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -192, y: -120}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1023194980
@@ -692,6 +693,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023194978}
   m_CullTransparentMesh: 1
+--- !u!114 &1023194983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023194978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac742bf76ff95734cbe08883d2783a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HandStateRight:
+    m_PersistentCalls:
+      m_Calls: []
+  HandStateLeft:
+    m_PersistentCalls:
+      m_Calls: []
+  GestureState:
+    m_PersistentCalls:
+      m_Calls: []
+  activateHandCloseEvents: 0
+  activateGestureEvents: 0
+  activeTrackAxis:
+    X: 1
+    Y: 1
+    Z: 0
+  playerIdentifier: 0
+  trackingSchema:
+    _Buckets: ffffffffffffffff00000000
+    _HashCodes: 020000000000000000000000
+    _Next: ffffffff0000000000000000
+    _Count: 1
+    _Version: 5
+    _FreeList: -1
+    _FreeCount: 0
+    _Keys: 020000000000000000000000
+    _Values:
+    - {fileID: 1023194979}
+    - {fileID: 0}
+    - {fileID: 0}
+  interactiveArea:
+    center: {x: 0, y: 0, z: 0}
+    width: 16
+    depth: 9
+    height: 9
 --- !u!1 &1138141647
 GameObject:
   m_ObjectHideFlags: 0

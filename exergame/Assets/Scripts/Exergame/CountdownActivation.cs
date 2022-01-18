@@ -18,6 +18,8 @@ public class CountdownActivation : MonoBehaviour
         countdownDisplay.gameObject.SetActive(false);
         ct = countdownDisplay.GetComponent<Text>();
         coroutine = CountdownToStart();
+
+        ActivateCountdown();
     }
 
     private IEnumerator CountdownToStart()
@@ -40,5 +42,10 @@ public class CountdownActivation : MonoBehaviour
     {
         countdownDisplay.gameObject.SetActive(true);
         StartCoroutine(coroutine);
+    }
+
+    private void DelayActivateCountdown()
+    {
+        Invoke("ActivateCountdown", 5.0f);
     }
 }
