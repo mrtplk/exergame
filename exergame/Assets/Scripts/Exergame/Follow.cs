@@ -80,7 +80,7 @@ public class Follow : MonoBehaviour
         if (collision.gameObject.tag == "Fire")
         {
             //COLOR RED
-            //MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.red);
+            // MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.red);
 
             if (take_care_counter == 10)
             {

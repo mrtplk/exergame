@@ -19,7 +19,7 @@ public class CountdownActivation : MonoBehaviour
         ct = countdownDisplay.GetComponent<Text>();
         coroutine = CountdownToStart();
 
-        ActivateCountdown();
+        DelayActivateCountdown();
     }
 
     private IEnumerator CountdownToStart()
@@ -46,6 +46,6 @@ public class CountdownActivation : MonoBehaviour
 
     private void DelayActivateCountdown()
     {
-        Invoke("ActivateCountdown", 5.0f);
+        Invoke("ActivateCountdown", 10.0f);
     }
 }
