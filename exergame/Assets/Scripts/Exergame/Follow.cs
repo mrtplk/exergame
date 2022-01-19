@@ -58,6 +58,9 @@ public class Follow : MonoBehaviour
             //spawner_script.destroyFire();
             //spawner_script.destroyAnimals();
 
+            //COLOR GREEN
+            // MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.green);
+            
             int n = Random.Range(0, 2);
             if (n == 0)
             {
@@ -76,7 +79,9 @@ public class Follow : MonoBehaviour
 
         if (collision.gameObject.tag == "Fire")
         {
-            
+            //COLOR RED
+            //MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.red);
+
             if (take_care_counter == 10)
             {
                 SoundManager.PlaySound(SoundManager.Sound.TakeCareSound);
@@ -93,6 +98,8 @@ public class Follow : MonoBehaviour
 
         if (collision.gameObject.tag == "Stone")
         {
+            //COLOR RED
+            //MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.red);
             if (take_care_counter == 10)
             {
                 SoundManager.PlaySound(SoundManager.Sound.TakeCareSound);
