@@ -31,6 +31,12 @@ public class PlayerMovementMap : MonoBehaviour
     private int take_care_counter;
     private int watch_out_counter;
 
+    private TrackerPlayerPosition tpp_script;
+
+    public GameObject lights_controller;
+    private LightControll lights_controller_script;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +59,9 @@ public class PlayerMovementMap : MonoBehaviour
         watch_out_counter = 0;
 
         prompt_controller_script = prompt_controller.GetComponent<PromptControllerMap>();
+        tpp_script = player.GetComponent<TrackerPlayerPosition>();
+
+        lights_controller_script = lights_controller.GetComponent<LightControll>();
     }
 
     // Update is called once per frame
@@ -79,8 +88,8 @@ public class PlayerMovementMap : MonoBehaviour
 
         if (collision.gameObject.tag == "Waterdrop")
         {
-            //COLOR BLUE
-            //MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.blue);
+            //COLOR BLUE - MAYBE NOT!
+            lights_controller_script.ActivateLightFeedback(Color.blue);
             ScoreManager.ScoreUpdate("D");
             collision.gameObject.gameObject.SetActive(false);
             int n = Random.Range(0, 10);
@@ -99,7 +108,7 @@ public class PlayerMovementMap : MonoBehaviour
         if (collision.gameObject.tag == "Fire")
         {
             //COLOR RED
-            //MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.red);
+            lights_controller_script.ActivateLightFeedback(Color.red);
             ScoreManager.ScoreUpdate("F");
             collision.gameObject.gameObject.SetActive(false);
             if (take_care_counter == 3)
@@ -118,7 +127,7 @@ public class PlayerMovementMap : MonoBehaviour
         if (collision.gameObject.tag == "Stone")
         {
             //COLOR RED
-            //MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.red);
+            lights_controller_script.ActivateLightFeedback(Color.red);
             ScoreManager.ScoreUpdate("S");
             collision.gameObject.gameObject.SetActive(false);
 
@@ -137,6 +146,7 @@ public class PlayerMovementMap : MonoBehaviour
 
         if (collision.gameObject.tag == "Wall")
         {
+            tpp_script.enabled = false;
             ScoreManager.ScoreUpdate("W");
             hit_counter += 1;
             SoundManager.PlaySound(SoundManager.Sound.WallHitSound);
@@ -145,7 +155,7 @@ public class PlayerMovementMap : MonoBehaviour
             if (hit_counter >= 3)
             {
                 //COLOR RED
-                //MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.red);
+                lights_controller_script.ActivateLightFeedback(Color.red);
                 if (hit_counter!=3)
                 {
                     SoundManager.PlaySound(SoundManager.Sound.TakeCareSound);
@@ -167,6 +177,8 @@ public class PlayerMovementMap : MonoBehaviour
                 restart_counter += 1;
             }
 
+            DelayEnableKinectScript();
+
             if (restart_counter == 3)
             {
                 ScoreManager.AnimalDead();
@@ -177,13 +189,11 @@ public class PlayerMovementMap : MonoBehaviour
                     scene3.SetActive(false);
                     scene5.SetActive(true);
                     DelayGroundScene();
-                    //SceneChanger.LoadCatchScene();
-
                 }
                 else
                 {
-                    //COLOR YELLOW
-                    //MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.yellow);
+                    //COLOR PINK
+                    lights_controller_script.ActivateLightFeedback(Color.magenta);
                     SoundManager.PlaySound(SoundManager.Sound.CongratulationsSound);
                     scene3.SetActive(false);
                     scene6.SetActive(true);
@@ -201,13 +211,13 @@ public class PlayerMovementMap : MonoBehaviour
             if (!ScoreManager.end)
             {
                 //COLOR GREEN
-                //MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.green);
+                lights_controller_script.ActivateLightFeedback(Color.green);
                 DelayGroundScene();
             }
             else
             {
-                //COLOR YELLOW
-                //MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.yellow);
+                //COLOR PINK
+                lights_controller_script.ActivateLightFeedback(Color.magenta);
                 SoundManager.PlaySound(SoundManager.Sound.CongratulationsSound);
                 scene3.SetActive(false);
                 scene6.SetActive(true);
@@ -232,6 +242,16 @@ public class PlayerMovementMap : MonoBehaviour
     private void CallCatchScene()
     {
         SceneChanger.LoadCatchScene();
+    }
+
+    private void DelayEnableKinectScript()
+    {
+        Invoke("EnableKinectScript", 1.0f);
+    }
+
+    private void EnableKinectScript()
+    {
+        tpp_script.enabled = true;
     }
 
 }

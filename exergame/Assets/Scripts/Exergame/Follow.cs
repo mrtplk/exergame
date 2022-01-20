@@ -10,8 +10,14 @@ public class Follow : MonoBehaviour
     public GameObject track;
     private Vector3 current_position;
 
+    private TrackerPlayerPosition tpp_script;
+
     public GameObject prompt_controller;
     private PromptController prompt_controller_script;
+
+    public GameObject lights_controller;
+    private LightControll lights_controller_script;
+
 
     private int take_care_counter;
 
@@ -20,6 +26,8 @@ public class Follow : MonoBehaviour
         take_care_counter = 0;
         spawner_script = spawner.GetComponent<Spawner>();
         prompt_controller_script = prompt_controller.GetComponent<PromptController>();
+        lights_controller_script = lights_controller.GetComponent<LightControll>();
+        tpp_script = track.GetComponent<TrackerPlayerPosition>();
     }
 
     // Update is called once per frame
@@ -59,8 +67,7 @@ public class Follow : MonoBehaviour
             //spawner_script.destroyAnimals();
 
             //COLOR GREEN
-            // MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.green);
-            
+            lights_controller_script.ActivateLightFeedback(Color.green);
             int n = Random.Range(0, 2);
             if (n == 0)
             {
@@ -74,13 +81,18 @@ public class Follow : MonoBehaviour
             }
             
             DelayMap();
-            //SceneChanger.LoadMapScene(); //activate map
+        }
+        //DISABLE KINECT SCRIPT FOR A SECOND
+        else
+        {
+            tpp_script.enabled = false;
+            DelayEnableKinectScript();
         }
 
         if (collision.gameObject.tag == "Fire")
         {
             //COLOR RED
-            // MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.red);
+            lights_controller_script.ActivateLightFeedback(Color.red);
 
             if (take_care_counter == 10)
             {
@@ -99,7 +111,8 @@ public class Follow : MonoBehaviour
         if (collision.gameObject.tag == "Stone")
         {
             //COLOR RED
-            //MagicRoomManager.instance.MagicRoomLightManager.SendColor(Color.red);
+            lights_controller_script.ActivateLightFeedback(Color.red);
+
             if (take_care_counter == 10)
             {
                 SoundManager.PlaySound(SoundManager.Sound.TakeCareSound);
@@ -126,12 +139,22 @@ public class Follow : MonoBehaviour
 
     private void DelayMap()
     {
-        Invoke("CallMap", 2.0f);
+        Invoke("CallMap", 1.5f);
     }
 
     private void CallMap()
     {
         SceneChanger.LoadMapScene();
+    }
+
+    private void DelayEnableKinectScript()
+    {
+        Invoke("EnableKinectScript", 1.0f);
+    }
+
+    private void EnableKinectScript()
+    {
+        tpp_script.enabled = true;
     }
 
 
