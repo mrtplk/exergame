@@ -85,8 +85,8 @@ public class Follow : MonoBehaviour
         //DISABLE KINECT SCRIPT FOR A SECOND
         else
         {
-            tpp_script.enabled = false;
-            DelayEnableKinectScript();
+            //tpp_script.enabled = false;
+            // DelayEnableKinectScript();
         }
 
         if (collision.gameObject.tag == "Fire")
@@ -139,7 +139,7 @@ public class Follow : MonoBehaviour
 
     private void DelayMap()
     {
-        Invoke("CallMap", 1.5f);
+        Invoke("CallMap", 3f);
     }
 
     private void CallMap()
@@ -149,7 +149,7 @@ public class Follow : MonoBehaviour
 
     private void DelayEnableKinectScript()
     {
-        Invoke("EnableKinectScript", 1.0f);
+        Invoke("EnableKinectScript", 0.75f);
     }
 
     private void EnableKinectScript()

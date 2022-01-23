@@ -9,7 +9,7 @@ public class LightControll : MonoBehaviour
     void Start()
     {
         //Check if it looks ok
-        ActivateFixedLights(Color.yellow);
+        //ActivateFixedLights(Color.yellow);
     }
 
     // Update is called once per frame

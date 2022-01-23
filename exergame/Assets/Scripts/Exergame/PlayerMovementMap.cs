@@ -62,6 +62,8 @@ public class PlayerMovementMap : MonoBehaviour
         tpp_script = player.GetComponent<TrackerPlayerPosition>();
 
         lights_controller_script = lights_controller.GetComponent<LightControll>();
+        tpp_script.enabled = false;
+        DelayEnableKinectScript();
     }
 
     // Update is called once per frame
@@ -152,11 +154,11 @@ public class PlayerMovementMap : MonoBehaviour
             SoundManager.PlaySound(SoundManager.Sound.WallHitSound);
             prompt_controller_script.showPrompt(3);
 
-            if (hit_counter >= 3)
+            if (hit_counter >= 10)
             {
                 //COLOR RED
                 lights_controller_script.ActivateLightFeedback(Color.red);
-                if (hit_counter!=3)
+                if (hit_counter!=10)
                 {
                     SoundManager.PlaySound(SoundManager.Sound.TakeCareSound);
                     prompt_controller_script.showPrompt(3);
@@ -179,7 +181,7 @@ public class PlayerMovementMap : MonoBehaviour
 
             DelayEnableKinectScript();
 
-            if (restart_counter == 3)
+            if (restart_counter == 10)
             {
                 ScoreManager.AnimalDead();
                 SoundManager.PlaySound(SoundManager.Sound.TryAgainSound);
@@ -246,7 +248,7 @@ public class PlayerMovementMap : MonoBehaviour
 
     private void DelayEnableKinectScript()
     {
-        Invoke("EnableKinectScript", 1.0f);
+        Invoke("EnableKinectScript", 0.75f);
     }
 
     private void EnableKinectScript()
